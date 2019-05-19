@@ -1,14 +1,16 @@
 package com.grouptwo.saloon.model;
+import javax.persistence.Entity;
 
+@Entity
 public class Appointment {
 
     private int appointmentID;
     private int startTime;
     private int endTime;
     private boolean cancelled;
-    int serviceID; // FK
-    int clientID; // FK
-    int userID; // FK
+//    private int serviceID; // FK
+//    private int clientID; // FK
+//    private int userID; // FK
 
     @Override
     public String toString() {
@@ -17,9 +19,6 @@ public class Appointment {
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +
                 ", cancelled=" + cancelled +
-                ", serviceID=" + serviceID +
-                ", clientID=" + clientID +
-                ", userID=" + userID +
                 '}';
     }
 
@@ -55,39 +54,11 @@ public class Appointment {
         this.cancelled = cancelled;
     }
 
-    public int getServiceID() {
-        return serviceID;
-    }
-
-    public void setServiceID(int serviceID) {
-        this.serviceID = serviceID;
-    }
-
-    public int getClientID() {
-        return clientID;
-    }
-
-    public void setClientID(int clientID) {
-        this.clientID = clientID;
-    }
-
-    public int getUserID() {
-        return userID;
-    }
-
-    public void setUserID(int userID) {
-        this.userID = userID;
-    }
-
     // Constructor
-
     public Appointment(int appointmentID, int startTime, int endTime, boolean cancelled, int serviceID, int clientID, int userID) {
         this.appointmentID = appointmentID;
         this.startTime = startTime;
         this.endTime = endTime;
         this.cancelled = cancelled;
-        this.serviceID = serviceID;
-        this.clientID = clientID;
-        this.userID = userID;
     }
 }

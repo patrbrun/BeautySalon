@@ -1,5 +1,7 @@
 package com.grouptwo.saloon.model;
+import javax.persistence.Entity;
 
+@Entity
 public class User {
 
     private int userId;

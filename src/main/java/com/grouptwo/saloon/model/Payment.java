@@ -1,5 +1,7 @@
 package com.grouptwo.saloon.model;
+import javax.persistence.Entity;
 
+@Entity
 public class Payment {
 
     private int paymentID;
@@ -70,7 +72,6 @@ public class Payment {
     }
 
     // Constructor
-
     public Payment(int paymentID, String modeOfPayment, int amountDue, int discount, int amountPaid, int balance) {
         this.paymentID = paymentID;
         this.modeOfPayment = modeOfPayment;

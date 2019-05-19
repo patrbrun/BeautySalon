@@ -1,5 +1,7 @@
 package com.grouptwo.saloon.model;
+import javax.persistence.Entity;
 
+@Entity
 public class Services {
 
     private int servicesID;
@@ -7,7 +9,6 @@ public class Services {
     private int price;
     private int discount;
     private int datePaid;
-    int paymentID; // FK
 
     @Override
     public String toString() {
@@ -17,7 +18,6 @@ public class Services {
                 ", price=" + price +
                 ", discount=" + discount +
                 ", datePaid=" + datePaid +
-                ", paymentID=" + paymentID +
                 '}';
     }
 
@@ -61,22 +61,12 @@ public class Services {
         this.datePaid = datePaid;
     }
 
-    public int getPaymentID() {
-        return paymentID;
-    }
-
-    public void setPaymentID(int paymentID) {
-        this.paymentID = paymentID;
-    }
-
     // Constructor
-
     public Services(int servicesID, String serviceName, int price, int discount, int datePaid, int paymentID) {
         this.servicesID = servicesID;
         this.serviceName = serviceName;
         this.price = price;
         this.discount = discount;
         this.datePaid = datePaid;
-        this.paymentID = paymentID;
     }
 }
