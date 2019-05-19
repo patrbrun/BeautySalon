@@ -2,15 +2,15 @@ package com.grouptwo.saloon.model;
 
 public class Payment {
 
-    private int paymentID
-    private String modeOfPayment
-    private int amountDue
-    private int discount
-    private int amountPaid
-    private int balance
+    private int paymentID;
+    private String modeOfPayment;
+    private int amountDue;
+    private int discount;
+    private int amountPaid;
+    private int balance;
 
-    @java.lang.Override
-    public java.lang.String toString() {
+    @Override
+    public String toString() {
         return "Payment{" +
                 "paymentID=" + paymentID +
                 ", modeOfPayment='" + modeOfPayment + '\'' +
@@ -27,23 +27,6 @@ public class Payment {
 
     public void setPaymentID(int paymentID) {
         this.paymentID = paymentID;
-    }
-
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-        if (!super.equals(object)) return false;
-        Payment payment = (Payment) object;
-        return paymentID == payment.paymentID &&
-                amountDue == payment.amountDue &&
-                discount == payment.discount &&
-                amountPaid == payment.amountPaid &&
-                balance == payment.balance &&
-                java.util.Objects.equals(modeOfPayment, payment.modeOfPayment);
-    }
-
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), paymentID, modeOfPayment, amountDue, discount, amountPaid, balance);
     }
 
     public String getModeOfPayment() {
@@ -84,7 +67,6 @@ public class Payment {
 
     public void setBalance(int balance) {
         this.balance = balance;
-    }
     }
 }
 

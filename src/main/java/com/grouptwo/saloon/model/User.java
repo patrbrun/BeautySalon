@@ -9,8 +9,8 @@ public class User {
     private int phoneNumber;
     private String userType;
 
-    @java.lang.Override
-    public java.lang.String toString() {
+    @Override
+    public String toString() {
         return "User{" +
                 "userId=" + userId +
                 ", userName='" + userName + '\'' +
@@ -27,23 +27,6 @@ public class User {
 
     public void setUserId(int userId) {
         this.userId = userId;
-    }
-
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-        if (!super.equals(object)) return false;
-        User user = (User) object;
-        return userId == user.userId &&
-                phoneNumber == user.phoneNumber &&
-                java.util.Objects.equals(userName, user.userName) &&
-                java.util.Objects.equals(password, user.password) &&
-                java.util.Objects.equals(email, user.email) &&
-                java.util.Objects.equals(userType, user.userType);
-    }
-
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), userId, userName, password, email, phoneNumber, userType);
     }
 
     public String getUserName() {

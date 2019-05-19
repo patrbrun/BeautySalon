@@ -2,16 +2,16 @@ package com.grouptwo.saloon.model;
 
 public class Appointment {
 
-    private int appointmentID
-    private int startTime
-    private int endTime
-    private boolean cancelled
-    int serviceID // FK
-    int clientID // FK
-    int userID // FK
+    private int appointmentID;
+    private int startTime;
+    private int endTime;
+    private boolean cancelled;
+    int serviceID; // FK
+    int clientID; // FK
+    int userID; // FK
 
-    @java.lang.Override
-    public java.lang.String toString() {
+    @Override
+    public String toString() {
         return "Appointment{" +
                 "appointmentID=" + appointmentID +
                 ", startTime=" + startTime +
@@ -21,24 +21,6 @@ public class Appointment {
                 ", clientID=" + clientID +
                 ", userID=" + userID +
                 '}';
-    }
-
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-        if (!super.equals(object)) return false;
-        Appointment that = (Appointment) object;
-        return appointmentID == that.appointmentID &&
-                startTime == that.startTime &&
-                endTime == that.endTime &&
-                cancelled == that.cancelled &&
-                serviceID == that.serviceID &&
-                clientID == that.clientID &&
-                userID == that.userID;
-    }
-
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), appointmentID, startTime, endTime, cancelled, serviceID, clientID, userID);
     }
 
     public int getAppointmentID() {
@@ -96,6 +78,4 @@ public class Appointment {
     public void setUserID(int userID) {
         this.userID = userID;
     }
-    }
 }
-

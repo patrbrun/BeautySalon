@@ -2,37 +2,31 @@ package com.grouptwo.saloon.model;
 
 public class Services {
 
-    private int servicesId
-    private String serviceName
-    private int price
-    private int discount
-    private int datePaid
-    int paymentID // FK
+    private int servicesID;
+    private String serviceName;
+    private int price;
+    private int discount;
+    private int datePaid;
+    int paymentID; // FK
 
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-        if (!super.equals(object)) return false;
-        Services services = (Services) object;
-        return servicesId == services.servicesId &&
-                price == services.price &&
-                discount == services.discount &&
-                datePaid == services.datePaid &&
-                paymentID == services.paymentID &&
-                java.util.Objects.equals(serviceName, services.serviceName);
+    @Override
+    public String toString() {
+        return "Services{" +
+                "servicesID=" + servicesID +
+                ", serviceName='" + serviceName + '\'' +
+                ", price=" + price +
+                ", discount=" + discount +
+                ", datePaid=" + datePaid +
+                ", paymentID=" + paymentID +
+                '}';
     }
 
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), servicesId, serviceName, price, discount, datePaid, paymentID);
+    public int getServicesID() {
+        return servicesID;
     }
 
-
-    public int getServicesId() {
-        return servicesId;
-    }
-
-    public void setServicesId(int servicesId) {
-        this.servicesId = servicesId;
+    public void setServicesID(int servicesID) {
+        this.servicesID = servicesID;
     }
 
     public String getServiceName() {
@@ -74,5 +68,4 @@ public class Services {
     public void setPaymentID(int paymentID) {
         this.paymentID = paymentID;
     }
-}
 }
