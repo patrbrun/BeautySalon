@@ -68,4 +68,15 @@ public class Services {
     public void setPaymentID(int paymentID) {
         this.paymentID = paymentID;
     }
+
+    // Constructor
+
+    public Services(int servicesID, String serviceName, int price, int discount, int datePaid, int paymentID) {
+        this.servicesID = servicesID;
+        this.serviceName = serviceName;
+        this.price = price;
+        this.discount = discount;
+        this.datePaid = datePaid;
+        this.paymentID = paymentID;
+    }
 }

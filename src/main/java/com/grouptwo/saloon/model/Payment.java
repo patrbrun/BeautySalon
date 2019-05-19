@@ -68,5 +68,16 @@ public class Payment {
     public void setBalance(int balance) {
         this.balance = balance;
     }
+
+    // Constructor
+
+    public Payment(int paymentID, String modeOfPayment, int amountDue, int discount, int amountPaid, int balance) {
+        this.paymentID = paymentID;
+        this.modeOfPayment = modeOfPayment;
+        this.amountDue = amountDue;
+        this.discount = discount;
+        this.amountPaid = amountPaid;
+        this.balance = balance;
+    }
 }
 

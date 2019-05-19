@@ -68,4 +68,14 @@ public class User {
     public void setUserType(String userType) {
         this.userType = userType;
     }
+
+    // Constructor
+    public User(int userId, String userName, String password, String email, int phoneNumber, String userType) {
+        this.userId = userId;
+        this.userName = userName;
+        this.password = password;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.userType = userType;
+    }
 }

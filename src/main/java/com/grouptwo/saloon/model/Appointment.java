@@ -78,4 +78,16 @@ public class Appointment {
     public void setUserID(int userID) {
         this.userID = userID;
     }
+
+    // Constructor
+
+    public Appointment(int appointmentID, int startTime, int endTime, boolean cancelled, int serviceID, int clientID, int userID) {
+        this.appointmentID = appointmentID;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.cancelled = cancelled;
+        this.serviceID = serviceID;
+        this.clientID = clientID;
+        this.userID = userID;
+    }
 }

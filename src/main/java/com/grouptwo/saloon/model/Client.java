@@ -48,4 +48,13 @@ public class Client {
     public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    // Constructor
+
+    public Client(int clientID, String clientName, String clientEmail, int phoneNumber) {
+        this.clientID = clientID;
+        this.clientName = clientName;
+        this.clientEmail = clientEmail;
+        this.phoneNumber = phoneNumber;
+    }
 }
