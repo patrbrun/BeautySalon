@@ -16,6 +16,5 @@ public class AppointmentController {
     private AppointmentRepository appointmentRepository;
 
     @GetMapping
-    public List<Appointment> getAllAppointment (){
-        return AppointmentRepository.findAll();}
+    public List<Appointment> getAllAppointment (){ return AppointmentRepository.findAll();}
 }
