@@ -1,6 +1,6 @@
 create table CLIENTS
 (
-    ID           INTEGER AUTO_INCREMENT,
+    ID           INTEGER auto_increment,
     NAME         VARCHAR(125) not null,
     PHONE_NUMBER INTEGER      not null,
     constraint CLIENTS_PK
@@ -9,23 +9,33 @@ create table CLIENTS
 
 create table EMPLOYEES
 (
-    ID           INTEGER AUTO_INCREMENT,
+    ID           INTEGER auto_increment,
     FIRST_NAME   VARCHAR(20) not null,
     LAST_NAME    VARCHAR(20) not null,
     JOB_TITLE    VARCHAR(20) not null,
     PHONE_NUMBER INTEGER     not null
-        constraint EMPLOYEES_PHONE_NUMBER_UINDEX
-            unique,
+        unique,
     constraint EMPLOYEES_PK
+        primary key (ID)
+);
+
+create table PAYMENT
+(
+    ID              INTEGER auto_increment,
+    MODE_OF_PAYMENT VARCHAR(20) not null,
+    AMOUNT_PAYED    INTEGER     not null,
+    DISCOUNT        INTEGER,
+    AMOUNT_DUE      INTEGER     not null,
+    BALANCE         INTEGER     not null,
+    constraint PAYMENT_PK
         primary key (ID)
 );
 
 create table SERVICES
 (
-    ID           INTEGER AUTO_INCREMENT,
+    ID           INTEGER auto_increment,
     SERVICE_NAME VARCHAR(50) not null
-        constraint SERVICES_SERVICE_NAME_UINDEX
-            unique,
+        unique,
     PRICE        DECIMAL     not null,
     constraint SERVICES_PK
         primary key (ID)
@@ -33,7 +43,7 @@ create table SERVICES
 
 create table APPOINTMENTS
 (
-    ID          INTEGER AUTO_INCREMENT,
+    ID          INTEGER auto_increment,
     SERVICE_ID  INTEGER               not null,
     CLIENT_ID   INTEGER               not null,
     EMPLOYEE_ID INTEGER               not null,
