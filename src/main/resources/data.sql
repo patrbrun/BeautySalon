@@ -10,8 +10,7 @@ create table CLIENTS
 create table EMPLOYEES
 (
     ID           INTEGER auto_increment,
-    FIRST_NAME   VARCHAR(20) not null,
-    LAST_NAME    VARCHAR(20) not null,
+    NAME         VARCHAR(20) not null,
     JOB_TITLE    VARCHAR(20) not null,
     PHONE_NUMBER INTEGER     not null
         unique,
