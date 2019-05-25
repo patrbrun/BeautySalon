@@ -1,26 +1,17 @@
 package com.grouptwo.saloon.model;
-import javax.persistence.Entity;
 
-@Entity
+import java.util.Objects;
+
 public class Payment {
 
     private int paymentID;
     private String modeOfPayment;
-    private int amountDue;
-    private int discount;
-    private int amountPaid;
-    private int balance;
+    private double amountDue;
+    private double discount;
+    private double amountPaid;
+    private double balance;
 
-    @Override
-    public String toString() {
-        return "Payment{" +
-                "paymentID=" + paymentID +
-                ", modeOfPayment='" + modeOfPayment + '\'' +
-                ", amountDue=" + amountDue +
-                ", discount=" + discount +
-                ", amountPaid=" + amountPaid +
-                ", balance=" + balance +
-                '}';
+    public Payment() {
     }
 
     public int getPaymentID() {
@@ -39,46 +30,66 @@ public class Payment {
         this.modeOfPayment = modeOfPayment;
     }
 
-    public int getAmountDue() {
+    public double getAmountDue() {
         return amountDue;
     }
 
-    public void setAmountDue(int amountDue) {
+    public void setAmountDue(double amountDue) {
         this.amountDue = amountDue;
     }
 
-    public int getDiscount() {
+    public double getDiscount() {
         return discount;
     }
 
-    public void setDiscount(int discount) {
+    public void setDiscount(double discount) {
         this.discount = discount;
     }
 
-    public int getAmountPaid() {
+    public double getAmountPaid() {
         return amountPaid;
     }
 
-    public void setAmountPaid(int amountPaid) {
+    public void setAmountPaid(double amountPaid) {
         this.amountPaid = amountPaid;
     }
 
-    public int getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
-    // Constructor
-    public Payment(int paymentID, String modeOfPayment, int amountDue, int discount, int amountPaid, int balance) {
-        this.paymentID = paymentID;
-        this.modeOfPayment = modeOfPayment;
-        this.amountDue = amountDue;
-        this.discount = discount;
-        this.amountPaid = amountPaid;
-        this.balance = balance;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Payment payment = (Payment) o;
+        return paymentID == payment.paymentID &&
+                amountDue == payment.amountDue &&
+                discount == payment.discount &&
+                amountPaid == payment.amountPaid &&
+                balance == payment.balance &&
+                Objects.equals(modeOfPayment, payment.modeOfPayment);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(paymentID, modeOfPayment, amountDue, discount, amountPaid, balance);
+    }
+
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "paymentID=" + paymentID +
+                ", modeOfPayment='" + modeOfPayment + '\'' +
+                ", amountDue=" + amountDue +
+                ", discount=" + discount +
+                ", amountPaid=" + amountPaid +
+                ", balance=" + balance +
+                '}';
     }
 }
 

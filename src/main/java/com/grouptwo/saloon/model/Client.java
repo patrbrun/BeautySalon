@@ -1,22 +1,15 @@
 package com.grouptwo.saloon.model;
-import javax.persistence.Entity;
 
-@Entity
+import java.util.Objects;
+
 public class Client {
 
     private int clientID;
     private String clientName;
     private String clientEmail;
-    private int phoneNumber;
+    private String phoneNumber;
 
-    @Override
-    public String toString() {
-        return "Client{" +
-                "clientID=" + clientID +
-                ", clientName='" + clientName + '\'' +
-                ", clientEmail='" + clientEmail + '\'' +
-                ", phoneNumber=" + phoneNumber +
-                '}';
+    public Client() {
     }
 
     public int getClientID() {
@@ -43,20 +36,37 @@ public class Client {
         this.clientEmail = clientEmail;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    // Constructor
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return clientID == client.clientID &&
+                phoneNumber.equals(client.phoneNumber) &&
+                Objects.equals(clientName, client.clientName) &&
+                Objects.equals(clientEmail, client.clientEmail);
+    }
 
-    public Client(int clientID, String clientName, String clientEmail, int phoneNumber) {
-        this.clientID = clientID;
-        this.clientName = clientName;
-        this.clientEmail = clientEmail;
-        this.phoneNumber = phoneNumber;
+    @Override
+    public int hashCode() {
+        return Objects.hash(clientID, clientName, clientEmail, phoneNumber);
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "clientID=" + clientID +
+                ", clientName='" + clientName + '\'' +
+                ", clientEmail='" + clientEmail + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                '}';
     }
 }

@@ -1,32 +1,25 @@
 package com.grouptwo.saloon.model;
-import javax.persistence.Entity;
 
-@Entity
+import java.util.Date;
+import java.util.Objects;
+
 public class Services {
 
-    private int servicesID;
+    private int servicesId;
     private String serviceName;
-    private int price;
-    private int discount;
-    private int datePaid;
+    private double price;
+    private Date discount;
+    private Date datePaid;
 
-    @Override
-    public String toString() {
-        return "Services{" +
-                "servicesID=" + servicesID +
-                ", serviceName='" + serviceName + '\'' +
-                ", price=" + price +
-                ", discount=" + discount +
-                ", datePaid=" + datePaid +
-                '}';
+    public Services() {
     }
 
-    public int getServicesID() {
-        return servicesID;
+    public int getServicesId() {
+        return servicesId;
     }
 
-    public void setServicesID(int servicesID) {
-        this.servicesID = servicesID;
+    public void setServicesId(int servicesId) {
+        this.servicesId = servicesId;
     }
 
     public String getServiceName() {
@@ -37,36 +30,55 @@ public class Services {
         this.serviceName = serviceName;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public int getDiscount() {
+    public Date getDiscount() {
         return discount;
     }
 
-    public void setDiscount(int discount) {
+    public void setDiscount(Date discount) {
         this.discount = discount;
     }
 
-    public int getDatePaid() {
+    public Date getDatePaid() {
         return datePaid;
     }
 
-    public void setDatePaid(int datePaid) {
+    public void setDatePaid(Date datePaid) {
         this.datePaid = datePaid;
     }
 
-    // Constructor
-    public Services(int servicesID, String serviceName, int price, int discount, int datePaid, int paymentID) {
-        this.servicesID = servicesID;
-        this.serviceName = serviceName;
-        this.price = price;
-        this.discount = discount;
-        this.datePaid = datePaid;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Services services = (Services) o;
+        return servicesId == services.servicesId &&
+                price == services.price &&
+                discount == services.discount &&
+                datePaid == services.datePaid &&
+                Objects.equals(serviceName, services.serviceName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(servicesId, serviceName, price, discount, datePaid);
+    }
+
+    @Override
+    public String toString() {
+        return "Services{" +
+                "servicesId=" + servicesId +
+                ", serviceName='" + serviceName + '\'' +
+                ", price=" + price +
+                ", discount=" + discount +
+                ", datePaid=" + datePaid +
+                '}';
     }
 }

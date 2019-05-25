@@ -1,26 +1,17 @@
 package com.grouptwo.saloon.model;
-import javax.persistence.Entity;
 
-@Entity
+import java.util.Objects;
+
 public class User {
 
     private int userId;
     private String userName;
     private String password;
     private String email;
-    private int phoneNumber;
+    private String phoneNumber;
     private String userType;
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId=" + userId +
-                ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", phoneNumber=" + phoneNumber +
-                ", userType='" + userType + '\'' +
-                '}';
+    public User() {
     }
 
     public int getUserId() {
@@ -55,11 +46,11 @@ public class User {
         this.email = email;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -71,13 +62,34 @@ public class User {
         this.userType = userType;
     }
 
-    // Constructor
-    public User(int userId, String userName, String password, String email, int phoneNumber, String userType) {
-        this.userId = userId;
-        this.userName = userName;
-        this.password = password;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.userType = userType;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return userId == user.userId &&
+                Objects.equals(userName, user.userName) &&
+                Objects.equals(password, user.password) &&
+                Objects.equals(email, user.email) &&
+                Objects.equals(phoneNumber, user.phoneNumber) &&
+                Objects.equals(userType, user.userType);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userId, userName, password, email, phoneNumber, userType);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                ", userType='" + userType + '\'' +
+                '}';
     }
 }
