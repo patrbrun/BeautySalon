@@ -6,6 +6,9 @@ Build:
 * mvn spring-boot:run
 
 H2 database: http://localhost:8080/h2-console/
+* Username: sa
+* No password
+
 SwaggerUI: http://localhost:8080/swagger-ui.html#/
 
 Template: Spring Initializer (start.spring.io)
