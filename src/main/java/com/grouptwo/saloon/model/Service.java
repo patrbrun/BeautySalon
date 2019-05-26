@@ -4,7 +4,6 @@ import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Objects;
 
 @Entity
 public class Service {
@@ -27,18 +26,21 @@ public class Service {
     private Date datePaid;
 
     @ApiModelProperty(notes = "payment id")
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "payment_id", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
     private Payment payment;
+
+    @ManyToOne
+    private Appointment appointment;
 
     public Service() {
     }
 
-    public Service(String serviceName, double price, Date discount, Date datePaid) {
+    public Service(String serviceName, double price, Date discount, Date datePaid, Payment payment) {
         this.serviceName = serviceName;
         this.price = price;
         this.discount = discount;
         this.datePaid = datePaid;
+        this.payment = payment;
     }
 
     public int getServicesId() {
@@ -89,33 +91,11 @@ public class Service {
         this.payment = payment;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Service service = (Service) o;
-        return servicesId == service.servicesId &&
-                Double.compare(service.price, price) == 0 &&
-                Objects.equals(serviceName, service.serviceName) &&
-                Objects.equals(discount, service.discount) &&
-                Objects.equals(datePaid, service.datePaid) &&
-                Objects.equals(payment, service.payment);
+    public Appointment getAppointment() {
+        return appointment;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(servicesId, serviceName, price, discount, datePaid, payment);
-    }
-
-    @Override
-    public String toString() {
-        return "Service{" +
-                "servicesId=" + servicesId +
-                ", serviceName='" + serviceName + '\'' +
-                ", price=" + price +
-                ", discount=" + discount +
-                ", datePaid=" + datePaid +
-                ", payment=" + payment +
-                '}';
+    public void setAppointment(Appointment appointment) {
+        this.appointment = appointment;
     }
 }
