@@ -3,7 +3,6 @@ package com.grouptwo.saloon.model;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 public class User {
@@ -29,12 +28,23 @@ public class User {
     private String userType;
 
     @ApiModelProperty(notes = "user")
-    @OneToOne(fetch = FetchType.LAZY,
+    @OneToOne(cascade = CascadeType.ALL)
+   /* @OneToOne(fetch = FetchType.LAZY,
             cascade = CascadeType.ALL,
-            mappedBy = "user")
+            mappedBy = "user")*/
     private Appointment appointment;
 
+
     public User() {
+    }
+
+    public User(String userName, String password, String email, String phoneNumber, String userType, Appointment appointment) {
+        this.userName = userName;
+        this.password = password;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.userType = userType;
+        this.appointment = appointment;
     }
 
     public int getUserId() {
@@ -93,35 +103,4 @@ public class User {
         this.appointment = appointment;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return userId == user.userId &&
-                Objects.equals(userName, user.userName) &&
-                Objects.equals(password, user.password) &&
-                Objects.equals(email, user.email) &&
-                Objects.equals(phoneNumber, user.phoneNumber) &&
-                Objects.equals(userType, user.userType) &&
-                Objects.equals(appointment, user.appointment);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(userId, userName, password, email, phoneNumber, userType, appointment);
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId=" + userId +
-                ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", userType='" + userType + '\'' +
-                ", appointment=" + appointment +
-                '}';
-    }
 }
