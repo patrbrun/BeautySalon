@@ -1,5 +1,10 @@
 # Apex Beauty Salon
 
+
+Build:
+* mvn clean install
+* mvn spring-boot:run
+
 Template: Spring Initializer (start.spring.io)
 
 ### Reference Documentation
