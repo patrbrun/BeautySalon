@@ -11,6 +11,8 @@ H2 database: http://localhost:8080/h2-console/
 
 SwaggerUI: http://localhost:8080/swagger-ui.html#/
 
+Database model: https://i.imgur.com/1VviGxC.png
+
 Template: Spring Initializer (start.spring.io)
 
 ### Reference Documentation
