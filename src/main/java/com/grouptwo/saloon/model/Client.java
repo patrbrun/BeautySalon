@@ -3,14 +3,13 @@ package com.grouptwo.saloon.model;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 public class Client {
-    @Id
-    @GeneratedValue(generator = "client_generator", strategy = GenerationType.IDENTITY)
+   @Id
+   @GeneratedValue(generator = "client_generator", strategy = GenerationType.IDENTITY)
 
-    @ApiModelProperty(notes = "Client Id")
+   @ApiModelProperty(notes = "Client Id")
     private int clientID;
 
     @ApiModelProperty(notes = "Client Name")
@@ -23,18 +22,20 @@ public class Client {
     private String phoneNumber;
 
     @ApiModelProperty(notes = "client")
-    @OneToOne(fetch = FetchType.LAZY,
+    @OneToOne(cascade = CascadeType.ALL)
+  /*  @OneToOne(fetch = FetchType.LAZY,
             cascade = CascadeType.ALL,
-            mappedBy = "client")
+            mappedBy = "client")*/
     private Appointment appointment;
 
     public Client() {
     }
 
-    public Client(String clientName, String clientEmail, String phoneNumber) {
+    public Client(String clientName, String clientEmail, String phoneNumber, Appointment appointment) {
         this.clientName = clientName;
         this.clientEmail = clientEmail;
         this.phoneNumber = phoneNumber;
+        this.appointment = appointment;
     }
 
     public int getClientID() {
@@ -75,33 +76,5 @@ public class Client {
 
     public void setAppointment(Appointment appointment) {
         this.appointment = appointment;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Client client = (Client) o;
-        return clientID == client.clientID &&
-                Objects.equals(clientName, client.clientName) &&
-                Objects.equals(clientEmail, client.clientEmail) &&
-                Objects.equals(phoneNumber, client.phoneNumber) &&
-                Objects.equals(appointment, client.appointment);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(clientID, clientName, clientEmail, phoneNumber, appointment);
-    }
-
-    @Override
-    public String toString() {
-        return "Client{" +
-                "clientID=" + clientID +
-                ", clientName='" + clientName + '\'' +
-                ", clientEmail='" + clientEmail + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", appointment=" + appointment +
-                '}';
     }
 }
