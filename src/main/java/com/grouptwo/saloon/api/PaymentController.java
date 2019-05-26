@@ -50,7 +50,7 @@ public class PaymentController {
         return new ResponseEntity<>("Payment saved successfully", HttpStatus.OK);
     }
 
-    @ApiOperation(value = "Update Payment")
+    @ApiOperation(value = "Update payment")
     @PutMapping(value = "/update/{paymentId}")
     public ResponseEntity<String> updatePayment(@PathVariable Integer paymentId, @RequestBody Payment payment) {
         Payment paymentDetails = paymentDao.getPaymentById(paymentId);
@@ -62,7 +62,7 @@ public class PaymentController {
         return new ResponseEntity<>("Appointment updated successfully", HttpStatus.OK);
     }
 
-    @ApiOperation(value = "Delete Payment")
+    @ApiOperation(value = "Delete payment")
     @DeleteMapping("/delete/{paymentId}")
     public ResponseEntity<String> deletePayment(@PathVariable Integer paymentId, Model model) {
         paymentDao.deletePayment(paymentId);

@@ -24,7 +24,7 @@ public class AppointmentController {
     }
 
 
-    @ApiOperation(value = "List of all appointments", response = Iterable.class)
+    @ApiOperation(value = "List all appointments", response = Iterable.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Appointment list retrieved successfully"),
             @ApiResponse(code = 401, message = "Authorization to view resource denied."),
@@ -57,6 +57,9 @@ public class AppointmentController {
         updateBooking.setCancelled(appointment.isCancelled());
         updateBooking.setStartTime(appointment.getStartTime());
         updateBooking.setEndTime(appointment.getEndTime());
+        updateBooking.setUser(appointment.getUser());
+        updateBooking.setClient(appointment.getClient());
+        updateBooking.setService(appointment.getService());
         return new ResponseEntity<>("Appointment updated successfully", HttpStatus.OK);
     }
 

@@ -24,7 +24,7 @@ public class ClientController {
         this.clientDao = clientDao;
     }
 
-    @ApiOperation(value = "List of all appointments", response = Iterable.class)
+    @ApiOperation(value = "List all clients", response = Iterable.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Clients retrieved successfully"),
             @ApiResponse(code = 401, message = "Authorization to view resource denied."),
@@ -37,7 +37,7 @@ public class ClientController {
         return clientDao.listClient();
     }
 
-    @ApiOperation(value = "Search Client using ID", response = Client.class)
+    @ApiOperation(value = "Search client using ID", response = Client.class)
     @GetMapping("/search/{clientId}")
     public Client searchClient(@PathVariable Integer clientId, Model model) {
         return clientDao.getClientById(clientId);

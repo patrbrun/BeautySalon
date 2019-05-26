@@ -24,7 +24,7 @@ public class UserController {
         this.userDao = userDao;
     }
 
-    @ApiOperation(value = "List of all appointments", response = Iterable.class)
+    @ApiOperation(value = "List all appointments", response = Iterable.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Appointment list retrieved successfully"),
             @ApiResponse(code = 401, message = "Authorization to view resource denied."),
@@ -37,7 +37,7 @@ public class UserController {
         return userDao.listUser();
     }
 
-    @ApiOperation(value = "Search User using ID", response = User.class)
+    @ApiOperation(value = "Search user using ID", response = User.class)
     @GetMapping("/search/{userId}")
     public User searchAppointment(@PathVariable Integer userId, Model model) {
         return userDao.getUserById(userId);

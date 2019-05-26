@@ -23,7 +23,7 @@ public class ServiceController {
         this.serviceDao = serviceDao;
     }
 
-    @ApiOperation(value = "List of all services offered", response = Iterable.class)
+    @ApiOperation(value = "List all services offered", response = Iterable.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Services retrieved successfully"),
             @ApiResponse(code = 401, message = "Authorization to view resource denied."),
@@ -42,14 +42,14 @@ public class ServiceController {
         return serviceDao.getServiceById(serviceId);
     }
 
-    @ApiOperation(value = "Save Service")
+    @ApiOperation(value = "Save service")
     @PostMapping("/save")
     public ResponseEntity<String> saveService(@RequestBody Service service, Model model) {
         serviceDao.save(service);
         return new ResponseEntity<>("Service saved successfully", HttpStatus.OK);
     }
 
-    @ApiOperation(value = "Update Service")
+    @ApiOperation(value = "Update service")
     @PutMapping(value = "/update/{serviceId}")
     public ResponseEntity<String> updateService(@PathVariable Integer serviceId, @RequestBody Service service) {
         Service serviceDetail = serviceDao.getServiceById(serviceId);
@@ -57,10 +57,11 @@ public class ServiceController {
         serviceDetail.setDiscount(service.getDiscount());
         serviceDetail.setPrice(service.getPrice());
         serviceDetail.setServiceName(service.getServiceName());
+        // serviceDetail.setPayment(service.getPayment());
         return new ResponseEntity<>("Service updated successfully", HttpStatus.OK);
     }
 
-    @ApiOperation(value = "Service Appointment")
+    @ApiOperation(value = "delete service")
     @DeleteMapping("/delete/{serviceId}")
     public ResponseEntity<String> deleteService(@PathVariable Integer serviceId, Model model) {
         serviceDao.deleteService(serviceId);
