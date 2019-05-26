@@ -5,6 +5,9 @@ Build:
 * mvn clean install
 * mvn spring-boot:run
 
+H2 database: http://localhost:8080/h2-console/
+SwaggerUI: http://localhost:8080/swagger-ui.html#/
+
 Template: Spring Initializer (start.spring.io)
 
 ### Reference Documentation
