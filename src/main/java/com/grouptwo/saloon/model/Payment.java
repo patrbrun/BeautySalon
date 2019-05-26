@@ -29,9 +29,6 @@ public class Payment {
 
     @ApiModelProperty(notes = "payment")
     @OneToOne(cascade = CascadeType.ALL)
-   /* @OneToOne(fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL,
-            mappedBy = "payment")*/
     private Service service;
 
     public Payment() {
@@ -103,4 +100,5 @@ public class Payment {
     }
 
 }
+
 
