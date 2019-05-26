@@ -3,7 +3,6 @@ package com.grouptwo.saloon.model;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 public class Payment {
@@ -29,20 +28,22 @@ public class Payment {
     private double balance;
 
     @ApiModelProperty(notes = "payment")
-    @OneToOne(fetch = FetchType.LAZY,
+    @OneToOne(cascade = CascadeType.ALL)
+   /* @OneToOne(fetch = FetchType.LAZY,
             cascade = CascadeType.ALL,
-            mappedBy = "payment")
+            mappedBy = "payment")*/
     private Service service;
 
     public Payment() {
     }
 
-    public Payment(String modeOfPayment, double amountDue, double discount, double amountPaid, double balance) {
+    public Payment(String modeOfPayment, double amountDue, double discount, double amountPaid, double balance, Service service) {
         this.modeOfPayment = modeOfPayment;
         this.amountDue = amountDue;
         this.discount = discount;
         this.amountPaid = amountPaid;
         this.balance = balance;
+        this.service = service;
     }
 
     public int getPaymentID() {
@@ -101,36 +102,5 @@ public class Payment {
         this.service = service;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Payment payment = (Payment) o;
-        return paymentID == payment.paymentID &&
-                Double.compare(payment.amountDue, amountDue) == 0 &&
-                Double.compare(payment.discount, discount) == 0 &&
-                Double.compare(payment.amountPaid, amountPaid) == 0 &&
-                Double.compare(payment.balance, balance) == 0 &&
-                Objects.equals(modeOfPayment, payment.modeOfPayment) &&
-                Objects.equals(service, payment.service);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(paymentID, modeOfPayment, amountDue, discount, amountPaid, balance, service);
-    }
-
-    @Override
-    public String toString() {
-        return "Payment{" +
-                "paymentID=" + paymentID +
-                ", modeOfPayment='" + modeOfPayment + '\'' +
-                ", amountDue=" + amountDue +
-                ", discount=" + discount +
-                ", amountPaid=" + amountPaid +
-                ", balance=" + balance +
-                ", service=" + service +
-                '}';
-    }
 }
 
