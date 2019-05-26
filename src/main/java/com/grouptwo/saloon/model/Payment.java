@@ -107,16 +107,17 @@ public class Payment {
         if (o == null || getClass() != o.getClass()) return false;
         Payment payment = (Payment) o;
         return paymentID == payment.paymentID &&
-                amountDue == payment.amountDue &&
-                discount == payment.discount &&
-                amountPaid == payment.amountPaid &&
-                balance == payment.balance &&
-                Objects.equals(modeOfPayment, payment.modeOfPayment);
+                Double.compare(payment.amountDue, amountDue) == 0 &&
+                Double.compare(payment.discount, discount) == 0 &&
+                Double.compare(payment.amountPaid, amountPaid) == 0 &&
+                Double.compare(payment.balance, balance) == 0 &&
+                Objects.equals(modeOfPayment, payment.modeOfPayment) &&
+                Objects.equals(service, payment.service);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(paymentID, modeOfPayment, amountDue, discount, amountPaid, balance);
+        return Objects.hash(paymentID, modeOfPayment, amountDue, discount, amountPaid, balance, service);
     }
 
     @Override
@@ -128,6 +129,7 @@ public class Payment {
                 ", discount=" + discount +
                 ", amountPaid=" + amountPaid +
                 ", balance=" + balance +
+                ", service=" + service +
                 '}';
     }
 }

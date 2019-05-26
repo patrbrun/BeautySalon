@@ -112,14 +112,17 @@ public class Appointment {
         if (o == null || getClass() != o.getClass()) return false;
         Appointment that = (Appointment) o;
         return appointmentID == that.appointmentID &&
-                startTime == that.startTime &&
-                endTime == that.endTime &&
-                cancelled == that.cancelled;
+                cancelled == that.cancelled &&
+                Objects.equals(startTime, that.startTime) &&
+                Objects.equals(endTime, that.endTime) &&
+                Objects.equals(service, that.service) &&
+                Objects.equals(user, that.user) &&
+                Objects.equals(client, that.client);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(appointmentID, startTime, endTime, cancelled);
+        return Objects.hash(appointmentID, startTime, endTime, cancelled, service, user, client);
     }
 
     @Override
@@ -129,6 +132,9 @@ public class Appointment {
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +
                 ", cancelled=" + cancelled +
+                ", service=" + service +
+                ", user=" + user +
+                ", client=" + client +
                 '}';
     }
 }

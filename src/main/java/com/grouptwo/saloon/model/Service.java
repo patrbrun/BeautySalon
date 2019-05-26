@@ -98,23 +98,24 @@ public class Service {
                 Double.compare(service.price, price) == 0 &&
                 Objects.equals(serviceName, service.serviceName) &&
                 Objects.equals(discount, service.discount) &&
-                Objects.equals(datePaid, service.datePaid);
+                Objects.equals(datePaid, service.datePaid) &&
+                Objects.equals(payment, service.payment);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(servicesId, serviceName, price, discount, datePaid);
+        return Objects.hash(servicesId, serviceName, price, discount, datePaid, payment);
     }
 
     @Override
     public String toString() {
-        return "Services{" +
+        return "Service{" +
                 "servicesId=" + servicesId +
                 ", serviceName='" + serviceName + '\'' +
                 ", price=" + price +
                 ", discount=" + discount +
                 ", datePaid=" + datePaid +
+                ", payment=" + payment +
                 '}';
     }
-
 }

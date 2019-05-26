@@ -7,10 +7,10 @@ import java.util.Objects;
 
 @Entity
 public class Client {
-   @Id
-   @GeneratedValue(generator = "client_generator", strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(generator = "client_generator", strategy = GenerationType.IDENTITY)
 
-   @ApiModelProperty(notes = "Client Id")
+    @ApiModelProperty(notes = "Client Id")
     private int clientID;
 
     @ApiModelProperty(notes = "Client Name")
@@ -83,14 +83,15 @@ public class Client {
         if (o == null || getClass() != o.getClass()) return false;
         Client client = (Client) o;
         return clientID == client.clientID &&
-                phoneNumber.equals(client.phoneNumber) &&
                 Objects.equals(clientName, client.clientName) &&
-                Objects.equals(clientEmail, client.clientEmail);
+                Objects.equals(clientEmail, client.clientEmail) &&
+                Objects.equals(phoneNumber, client.phoneNumber) &&
+                Objects.equals(appointment, client.appointment);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(clientID, clientName, clientEmail, phoneNumber);
+        return Objects.hash(clientID, clientName, clientEmail, phoneNumber, appointment);
     }
 
     @Override
@@ -99,7 +100,8 @@ public class Client {
                 "clientID=" + clientID +
                 ", clientName='" + clientName + '\'' +
                 ", clientEmail='" + clientEmail + '\'' +
-                ", phoneNumber=" + phoneNumber +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", appointment=" + appointment +
                 '}';
     }
 }

@@ -103,12 +103,13 @@ public class User {
                 Objects.equals(password, user.password) &&
                 Objects.equals(email, user.email) &&
                 Objects.equals(phoneNumber, user.phoneNumber) &&
-                Objects.equals(userType, user.userType);
+                Objects.equals(userType, user.userType) &&
+                Objects.equals(appointment, user.appointment);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, userName, password, email, phoneNumber, userType);
+        return Objects.hash(userId, userName, password, email, phoneNumber, userType, appointment);
     }
 
     @Override
@@ -118,8 +119,9 @@ public class User {
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
-                ", phoneNumber=" + phoneNumber +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 ", userType='" + userType + '\'' +
+                ", appointment=" + appointment +
                 '}';
     }
 }
