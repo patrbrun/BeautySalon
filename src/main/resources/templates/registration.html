@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/functions.js"></script>
+</head>
+
+<body>
+    <header class="header-section">
+        <div class="header-warp">
+            <form action="">
+                <ul class="main-menu">
+                    <li class="active"><a href="home.html">Home</a></li>
+                    <li><a href="schedule.html">Appointment Schedule</a></li>
+                </ul>
+                <input type="email" placeholder="Email" name="email" class="email-input" required>
+                <input type="password" placeholder="Password" name="psw" class="psw-input" autocomplete="off" required>
+                <input type="submit" class="site-sign" value="Sign in">Sign in</input>
+                <a href="registration.html" class="site-reg">Register</a>
+            </form>
+        </div>
+    </header>
+
+    <section class="logo-section set-bg" data-setbg="img/main_background.jpg">
+        <div class="container">
+            <div class="registration-card">
+                <form action="" method="POST" id="register">
+                    <table class="registration-form">     
+                        <tr>
+                            <td>*First Name:</td>
+                            <td><input type='text' name='name' autocomplete="off" required></td>
+                            <td>*Second Name:</td>
+                            <td><input type='text' name='second' autocomplete="off" required></td>
+                        </tr>
+                        <tr> <td>&nbsp;</td> </tr>
+                        <tr>
+                            <td>Date Of Birth:</td>
+                            <td><input type='date' name='date'></td>
+                            <td>Gender:</td>
+                            <td><input type="radio" name="gender" value="female"> Female &nbsp;&nbsp;<input type="radio" name="gender" value="male"> Male</td>
+
+                        </tr>
+                        <tr> <td>&nbsp;</td> </tr>
+                        <tr>
+                            <td>Address:</td>
+                            <td><input type='text' name='address' autocomplete="off"></td>
+                            <td>Zip:</td>
+                            <td><input type='text' name='zip' pattern="[A-Za-z, 0-9]" autocomplete="off"></td>
+                        </tr>
+                        <tr> <td>&nbsp;</td> </tr>
+                        <tr>
+                            <td>*Phone:</td>
+                            <td><input type='tel' name='phone' autocomplete="off" pattern="^[0-9-+s()]*$" required></td>
+                            <td>*Email:</td>
+                            <td><input type='email' name='email' autocomplete="off" required></td>
+                        </tr>
+                        <tr> <td>&nbsp;</td> </tr>
+                        <tr>
+                            <td>*Password:</td>
+                            <td><input type="password" name="psw" required autocomplete="off"></td>
+                            <td>*Repeat Password:</td>
+                            <td><input type="password" name="psw-repeat" autocomplete="off" required></td>
+                        </tr>
+                    </table>
+                    <input class="register-btn" id="register-btn" type='submit' onclick="allOn(); welcome();" name='register' value="Register">
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section set-bg" data-setbg="img/footer.jpg">
+        <section class="contact-section spad">
+            <div class="container">
+                <div class="row">
+                    <div class="col contact-content">
+                        <h2 class="contact-title">Apex Beatuy Salon</h2>
+                        <p class="contacts">
+                            Address: Raja 4C, Tallinn, 12616<br>
+                            Phone number: +372 628 5800<br>
+                            Email: info@itcollege.ee
+                        </p>
+                        <h3 class="opening-hours">Opening Hours:</h3>
+                        <p class="hours">
+                            Monday - Friday: 10.00 - 20.00<br>
+                            Saturday - Sunday: 10.00 - 18:00
+                        </p>
+                        <div class="map-area" id="map-canvas"></div>
+                    </div>
+                    <div class="col">
+                        <h2 class="contact-title">Get in Touch</h2>
+						<form action="mailto:someone@example.com" method="post" enctype="text/plain" class="contact-form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" placeholder="Your Name">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" placeholder="Your E-mail">
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="text" placeholder="Subject">
+                                    <textarea placeholder="Your Message"></textarea>
+                                    <button class="site-btn">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo"></script>    <script src="js/map.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

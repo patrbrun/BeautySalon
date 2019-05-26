@@ -2,13 +2,28 @@ package com.grouptwo.saloon.model;
 
 import java.util.Objects;
 
+@Entity
 public class User {
 
+    @Id
+    @GeneratedValue(generator = "user_generator", strategy = GenerationType.IDENTITY)
+
+    @ApiModelProperty(notes = "User Id")
     private int userId;
+
+    @ApiModelProperty(notes = "User Name")
     private String userName;
+
+    @ApiModelProperty(notes = "Password")
     private String password;
+
+    @ApiModelProperty(notes = "Email")
     private String email;
+
+    @ApiModelProperty(notes = "Phone Number")
     private String phoneNumber;
+
+    @ApiModelProperty(notes = "User Type")
     private String userType;
 
     public User() {

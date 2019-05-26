@@ -2,13 +2,28 @@ package com.grouptwo.saloon.model;
 
 import java.util.Objects;
 
+@Entity
 public class Payment {
 
+    @Id
+    @GeneratedValue(generator = "payment_generator", strategy = GenerationType.IDENTITY)
+
+    @ApiModelProperty(notes = "Payment Id")
     private int paymentID;
+
+    @ApiModelProperty(notes = "Mode of Payment")
     private String modeOfPayment;
+
+    @ApiModelProperty(notes = "Amount Due")
     private double amountDue;
+
+    @ApiModelProperty(notes = "Discount")
     private double discount;
+
+    @ApiModelProperty(notes = "Amount Paid")
     private double amountPaid;
+
+    @ApiModelProperty(notes = "Balance")
     private double balance;
 
     public Payment() {

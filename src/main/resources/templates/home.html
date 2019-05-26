@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="css/style.css"/>
+</head>
+
+<body>
+	<header class="header-section">
+        <div class="header-warp">
+            <form action="">
+                <ul class="main-menu">
+                    <li class="active"><a href="home.html">Home</a></li>
+                    <li><a href="schedule.html">Appointment Schedule</a></li>
+                </ul>
+                <input type="email" placeholder="Email" name="email" class="email-input" required>
+                <input type="password" placeholder="Password" name="psw" class="psw-input" autocomplete="off" required>
+                <input type="submit" class="site-sign" value="Sign in">Sign in</input>
+                <a href="registration.html" class="site-reg">Register</a>
+            </form>
+
+        </div>
+	</header>
+
+	<section class="logo-section set-bg" data-setbg="img/main_background.jpg" >
+		<div class="container">			
+				<div class="logo-item">
+					<div class="logo-content text-white">
+						<h2>Apex<br>Beauty Salon</h2>
+						<a href="schedule.html" class="site-btn sb-big">See Appointment Schedule</a>
+					</div>
+					<div class="logo-preview set-bg" data-setbg="img/logo/main.jpg"></div>
+				</div>		
+		</div>
+	</section>
+
+	<section class="services-section set-bg" >
+		<div class="container">
+			<div class="section-title text-white">
+				<h2 class="head">Services & Prices</h2>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 col-md-6">
+					<div class="services-list services-card">
+						<img src="img/services/1.jpg" alt="" class="image">
+						<div class="services-info">
+							<h2>Hair</h2>
+							<p>Hair cut 25€</p>
+							<p>Hair wash + Cut + Styling 60€</p>
+							<p>Hair Coloring 40€</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="services-list services-card">
+						<img src="img/services/2.jpg" alt="" class="image">
+						<div class="services-info">
+							<h2>Nails</h2>
+							<p>Manicure 15€</p>
+							<p>Gel Manicure 25€</p>
+							<p>Pedicure 25€</p>
+							<p>Gel Pedicure 30€</p>
+
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="services-list services-card">
+						<img src="img/services/3.jpg" alt="" class="image">
+						<div class="services-info">
+							<h2>Makeup</h2>
+							<p>Evening Makeup 25€</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="services-list services-card">
+						<img src="img/services/4.jpg" alt="" class="image">
+						<div class="services-info">
+							<h2>Face Treatment</h2>
+							<p>Face mask 10€</p>
+							<p>Skin cleaning 25€</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="services-list services-card">
+						<img src="img/services/5.jpg" alt="" class="image">
+						<div class="services-info">
+							<h2>Body massage</h2>
+							<p>Face 30 min 15€</p>
+							<p>Full body 30 min 45</p>
+							<p>Full body 60 min 60</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="services-list services-card">
+						<img src="img/services/6.jpg" alt="" class="image">
+						<div class="services-info">
+							<h2>Solarium</h2>
+							<p>1 min 0.30€</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer class="footer-section set-bg" data-setbg="img/footer.jpg">
+		<section class="contact-section spad">
+			<div class="container">
+				<div class="row">
+					<div class="col contact-content">
+						<h2 class="contact-title">Apex Beatuy Salon</h2>
+						<p class="contacts">Address: Raja 4C, Tallinn, 12616<br>
+							Phone number: +372 628 5800<br>
+							Email: info@itcollege.ee</p>
+						<h3 class="opening-hours">Opening Hours:</h3>
+						<p class="hours">
+							Monday - Friday: 10.00 - 20.00<br>
+							Saturday - Sunday: 10.00 - 18:00
+						</p>
+						<div class="map-area" id="map-canvas"></div>
+					</div>
+					<div class="col">
+						<h2 class="contact-title">Get in Touch</h2>
+						<form action="mailto:someone@example.com" method="post" enctype="text/plain" class="contact-form">
+							<div class="row">
+								<div class="col-md-6">
+									<input type="text" placeholder="Your Name">
+								</div>
+								<div class="col-md-6">
+									<input type="text" placeholder="Your E-mail">
+								</div>
+								<div class="col-md-12">
+									<input type="text" placeholder="Subject">
+									<textarea placeholder="Your Message"></textarea>
+									<button class="site-btn">Submit</button>
+								</div>
+							</div>
+						</form>
+					</div>				
+				</div>				
+			</div>
+		</section>		
+	</footer>
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo"></script>
+	<script src="js/map.js"></script>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/main.js"></script>
+    </body>
+</html>

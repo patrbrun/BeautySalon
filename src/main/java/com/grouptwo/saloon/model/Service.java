@@ -3,15 +3,28 @@ package com.grouptwo.saloon.model;
 import java.util.Date;
 import java.util.Objects;
 
+@Entity
 public class Services {
 
+    @Id
+    @GeneratedValue(generator = "services_generator", strategy = GenerationType.IDENTITY)
+
+    @ApiModelProperty(notes = "Services Id")
     private int servicesId;
+
+    @ApiModelProperty(notes = "Service Name")
     private String serviceName;
+
+    @ApiModelProperty(notes = "Price")
     private double price;
+
+    @ApiModelProperty(notes = "Date of Discount")
     private Date discount;
+
+    @ApiModelProperty(notes = "Date paid")
     private Date datePaid;
 
-    public Services() {
+    public Service() {
     }
 
     public int getServicesId() {
@@ -58,7 +71,7 @@ public class Services {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Services services = (Services) o;
+        Service services = (Service) o;
         return servicesId == services.servicesId &&
                 price == services.price &&
                 discount == services.discount &&

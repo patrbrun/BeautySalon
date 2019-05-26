@@ -13,7 +13,7 @@ import java.util.Objects;
 public class Appointment {
 
     @Id
-    @GeneratedValue(generator = "kid_generator", strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "appointment_generator", strategy = GenerationType.IDENTITY)
     @ApiModelProperty(notes = "Appointment Id")
     private int appointmentID;
 

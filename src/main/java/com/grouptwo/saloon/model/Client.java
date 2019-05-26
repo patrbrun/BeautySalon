@@ -2,11 +2,22 @@ package com.grouptwo.saloon.model;
 
 import java.util.Objects;
 
+@Entity
 public class Client {
 
+   @Id
+   @GeneratedValue(generator = "client_generator", strategy = GenerationType.IDENTITY)
+
+   @ApiModelProperty(notes = "Client Id")
     private int clientID;
+
+    @ApiModelProperty(notes = "Client Name")
     private String clientName;
+
+    @ApiModelProperty(notes = "Client Email")
     private String clientEmail;
+
+    @ApiModelProperty(notes = "Phone Number")
     private String phoneNumber;
 
     public Client() {
