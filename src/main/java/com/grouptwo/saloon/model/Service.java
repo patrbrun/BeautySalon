@@ -1,11 +1,13 @@
 package com.grouptwo.saloon.model;
 
+import io.swagger.annotations.ApiModelProperty;
+
+import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
 @Entity
-public class Services {
-
+public class Service {
     @Id
     @GeneratedValue(generator = "services_generator", strategy = GenerationType.IDENTITY)
 
@@ -24,7 +26,19 @@ public class Services {
     @ApiModelProperty(notes = "Date paid")
     private Date datePaid;
 
+    @ApiModelProperty(notes = "payment id")
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "payment_id", nullable = false)
+    private Payment payment;
+
     public Service() {
+    }
+
+    public Service(String serviceName, double price, Date discount, Date datePaid) {
+        this.serviceName = serviceName;
+        this.price = price;
+        this.discount = discount;
+        this.datePaid = datePaid;
     }
 
     public int getServicesId() {
@@ -67,16 +81,24 @@ public class Services {
         this.datePaid = datePaid;
     }
 
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Service services = (Service) o;
-        return servicesId == services.servicesId &&
-                price == services.price &&
-                discount == services.discount &&
-                datePaid == services.datePaid &&
-                Objects.equals(serviceName, services.serviceName);
+        Service service = (Service) o;
+        return servicesId == service.servicesId &&
+                Double.compare(service.price, price) == 0 &&
+                Objects.equals(serviceName, service.serviceName) &&
+                Objects.equals(discount, service.discount) &&
+                Objects.equals(datePaid, service.datePaid);
     }
 
     @Override
@@ -94,4 +116,5 @@ public class Services {
                 ", datePaid=" + datePaid +
                 '}';
     }
+
 }

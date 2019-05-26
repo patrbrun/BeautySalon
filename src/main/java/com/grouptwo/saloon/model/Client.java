@@ -1,10 +1,12 @@
 package com.grouptwo.saloon.model;
 
+import io.swagger.annotations.ApiModelProperty;
+
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 public class Client {
-
    @Id
    @GeneratedValue(generator = "client_generator", strategy = GenerationType.IDENTITY)
 
@@ -20,7 +22,19 @@ public class Client {
     @ApiModelProperty(notes = "Phone Number")
     private String phoneNumber;
 
+    @ApiModelProperty(notes = "client")
+    @OneToOne(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            mappedBy = "client")
+    private Appointment appointment;
+
     public Client() {
+    }
+
+    public Client(String clientName, String clientEmail, String phoneNumber) {
+        this.clientName = clientName;
+        this.clientEmail = clientEmail;
+        this.phoneNumber = phoneNumber;
     }
 
     public int getClientID() {
@@ -53,6 +67,14 @@ public class Client {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public Appointment getAppointment() {
+        return appointment;
+    }
+
+    public void setAppointment(Appointment appointment) {
+        this.appointment = appointment;
     }
 
     @Override

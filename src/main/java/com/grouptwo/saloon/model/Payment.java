@@ -1,10 +1,12 @@
 package com.grouptwo.saloon.model;
 
+import io.swagger.annotations.ApiModelProperty;
+
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 public class Payment {
-
     @Id
     @GeneratedValue(generator = "payment_generator", strategy = GenerationType.IDENTITY)
 
@@ -26,7 +28,21 @@ public class Payment {
     @ApiModelProperty(notes = "Balance")
     private double balance;
 
+    @ApiModelProperty(notes = "payment")
+    @OneToOne(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            mappedBy = "payment")
+    private Service service;
+
     public Payment() {
+    }
+
+    public Payment(String modeOfPayment, double amountDue, double discount, double amountPaid, double balance) {
+        this.modeOfPayment = modeOfPayment;
+        this.amountDue = amountDue;
+        this.discount = discount;
+        this.amountPaid = amountPaid;
+        this.balance = balance;
     }
 
     public int getPaymentID() {
@@ -75,6 +91,14 @@ public class Payment {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    public Service getService() {
+        return service;
+    }
+
+    public void setService(Service service) {
+        this.service = service;
     }
 
     @Override
