@@ -1,4 +1,4 @@
-# Getting Started
+# Apex Beauty Salon
 
 ### Reference Documentation
 For further reference, please consider the following sections:
