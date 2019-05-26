@@ -1,5 +1,7 @@
 # Apex Beauty Salon
 
+Template: Spring Initializer (start.spring.io)
+
 ### Reference Documentation
 For further reference, please consider the following sections:
 
