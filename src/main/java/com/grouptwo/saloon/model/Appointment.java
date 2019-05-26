@@ -1,13 +1,11 @@
 package com.grouptwo.saloon.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModelProperty;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Objects;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Appointment {
@@ -24,30 +22,28 @@ public class Appointment {
 
     @ApiModelProperty(notes = "Appointment cancelled")
     private boolean cancelled;
-    @ApiModelProperty(notes = "appointment id")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "serviceId", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnore
-    private Service service;
+
+    @ApiModelProperty(notes = "appointment")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "appointment")
+    private Set<Service> service = new HashSet<>();
 
     @ApiModelProperty(notes = "user id")
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
     private User user;
 
     @ApiModelProperty(notes = "client id")
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "client_id", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
     private Client client;
 
     public Appointment() {
     }
 
-    public Appointment(Date startTime, Date endTime, boolean cancelled) {
+    public Appointment(Date startTime, Date endTime, boolean cancelled, User user, Client client) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.cancelled = cancelled;
+        this.user = user;
+        this.client = client;
     }
 
     public int getAppointmentID() {
@@ -82,11 +78,11 @@ public class Appointment {
         this.cancelled = cancelled;
     }
 
-    public Service getService() {
+    public Set<Service> getService() {
         return service;
     }
 
-    public void setService(Service service) {
+    public void setService(Set<Service> service) {
         this.service = service;
     }
 
@@ -104,38 +100,6 @@ public class Appointment {
 
     public void setClient(Client client) {
         this.client = client;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Appointment that = (Appointment) o;
-        return appointmentID == that.appointmentID &&
-                cancelled == that.cancelled &&
-                Objects.equals(startTime, that.startTime) &&
-                Objects.equals(endTime, that.endTime) &&
-                Objects.equals(service, that.service) &&
-                Objects.equals(user, that.user) &&
-                Objects.equals(client, that.client);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(appointmentID, startTime, endTime, cancelled, service, user, client);
-    }
-
-    @Override
-    public String toString() {
-        return "Appointment{" +
-                "appointmentID=" + appointmentID +
-                ", startTime=" + startTime +
-                ", endTime=" + endTime +
-                ", cancelled=" + cancelled +
-                ", service=" + service +
-                ", user=" + user +
-                ", client=" + client +
-                '}';
     }
 }
 
